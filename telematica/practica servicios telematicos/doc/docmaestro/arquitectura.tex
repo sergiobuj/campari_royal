@@ -1,0 +1,6 @@
+La arquitectura consiste en siempre tener un proceso que sirva de listener, y que cada vez que un cliente que se intente conectar, el listener haga fork(),
+para así siempre tener el proceso en el puerto deseado, y que simplemente sea un nuevo proceso que se encargue de manejar la petición. Ahora en el
+proceso hijo no hace falta listener por lo que se libera ese recurso, ahora en los procesos hijos se debe seleccionar por algún método en particular uno
+de los back-end, una vez escogido uno de estos, establecemos la conexión con el back-end en el mismo proceso y en teoría solo bastaría con transferir
+los buffers entre los sockets, y al final cerrar las conexiones y cerras los procesos.\\
+

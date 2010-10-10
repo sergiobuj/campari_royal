@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+	<target name="javadoc">
+		<javadoc access="package" author="true" classpath="." destdir="doc" doctitle="Javadoc de Sabelotodo Sergio Botero" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="sabe" source="1.3" sourcepath="." splitindex="true" use="true" version="true"/>
+	</target>
+</project>

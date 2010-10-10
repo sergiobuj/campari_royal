@@ -1,0 +1,119 @@
+\documentclass[
+	%draft,
+	%submission,
+	%compressed,
+	final,
+	%
+	%technote,
+	%internal,
+	%submitted,
+	%inpress,
+	%reprint,
+	%
+	%titlepage,
+	notitlepage,
+	%anonymous,
+	narroweqnarray,
+	inline,
+	twoside,
+         %invited,
+	]{ieee}
+
+\newcommand{\latexiie}{\LaTeX2{\Large$_\varepsilon$}}
+
+%Code
+	\usepackage{listings}
+	\usepackage{fancyvrb}
+	\usepackage{moreverb}
+	\usepackage{listings}
+%	\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
+%	\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
+	\usepackage{amssymb}
+	\def\myTabs{2}
+%edoC
+\usepackage{graphicx}
+%Español
+	\usepackage[utf8]{inputenc}
+	\usepackage[spanish]{babel}
+%loñapsE
+
+\begin{document}
+
+\title[Load Balancer]{
+       Telemática\\ Load Balancer}
+
+
+\author[]{Sebastián Arcila Valenzuela (\textit{sarcilav@eafit.edu.co})
+\and{}y Sergio Botero Uribe (\textit{sbotero2@eafit.edu.co}).
+}
+
+\journal{ST0255-031 Telemática}
+\titletext{, \today}
+\maketitle               
+
+\begin{abstract} 
+Documentación de la práctica del load balancer para servidores web que implementa 4 métodos de balanceo. Esta documentación
+contiene los diagramas requeridos para la entrega y la explicación de los métodos.
+\end{abstract}
+
+\section{Introducción}
+	\input{docmaestro/introduccion}
+
+\section{Protocolos implementados}
+	\input{docmaestro/protocolos}
+
+\section{Diagrama de secuencias UML}
+	\include{diagramas/uml}
+
+\section{Máquina de estado finito}
+	\input{diagramas/maquina}
+	
+\section{Pseudocódigos de los métodos}
+
+	En todos los métodos se espera leer un arreglo con las direcciones de servidores que estará contenida en un archivo de configuración.
+	\begin{itemize}
+	\item Round Robin.
+		\input{seudo/roundrobin}
+	\item Menor número de conexiones.
+		$\triangle$ Primera aproximación a este método.
+		\input{seudo/leastconnections}
+		$\triangle$ Aproximación definitiva a este método.
+		\input{seudo/leastconnections2}
+	\item Carga en servidor.
+		\input{seudo/agent}
+	\item Método del grupo.
+		\input{seudo/nuestro}
+	\end{itemize}
+	
+	$\triangle$ PS: En los seudo códigos se puede ver que en muchos pasos se debe escribir y leer información, esto se debe a que mediante el uso
+	de procesos que lo que hacen es una copia idéntica y no tendría sentido usar una variable para manejar la información porque esta no podría ser
+	vista por los otros procesos.
+
+\section{Arquitectura del sistema}
+	\input{docmaestro/arquitectura}
+
+\section{Pruebas}
+	\input{docmaestro/pruebas}
+	
+\section{Conclusiones}
+	\input{docmaestro/conclusiones}
+	
+\begin{thebibliography}{1}
+
+\bibitem{GitHub}
+\newblock{GitHub$^{\rm TM}$ - Social codign}\\
+\newblock {\em http://github.com/sarcilav/loadbalancer20092} \\
+\newblock {\em http://github.com/sergiobuj/loadbalancer20092} \\
+\newblock Sitios donde se encuentra todo el desarrollo y código e la práctica.
+
+\bibitem{osref:}
+\newblock{ Sistemas Operativos - Nutt - Pearson}\\
+\bibitem{Cref:}
+\newblock{ Programación en C - Gottfried - PemcGrawHill}\\
+\bibitem{sockref:}
+\newblock{ Programación de sockets Linux - Walton - Prentice Hall}\\
+
+\end{thebibliography}
+
+
+\end{document}

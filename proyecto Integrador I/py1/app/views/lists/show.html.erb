@@ -1,0 +1,30 @@
+<h1>Lista de Mercado</h1>
+
+<p>
+  <b>Nombre:</b>
+  <%=h @list.name %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%=h @list.date %>
+</p>
+
+<p>
+  <b>Productos:</b>
+  <ul>
+    <% if @list.products.empty? %>
+    ¡Ninguno! (<%= link_to "Agregar", edit_user_list_path(@user, @list) %>)
+    <% else %>
+    <% for p in @list.products -%>
+    <li>
+      <%= h p.name %>
+    </li>
+    <% end -%>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Editar', edit_user_list_path(@user, @list) %> |
+<!--<%= link_to 'Listas', user_lists_path(@user) %>-->
+<%= link_to 'Mi Cuenta', user_path(@user)%>

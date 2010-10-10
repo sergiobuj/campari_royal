@@ -1,0 +1,16 @@
+		Leer <m>
+		Asignarle 1 a <raiz>
+		Asignarle 0 a <valor>
+		Mientras.que <valor> menor_que <m> {
+			<valor> es <raiz> por <raiz>
+			Si <valor> igual_a <m> {
+				Escribir <raiz>
+				Parar
+			}
+			Si <valor> mayor_que <m> {
+				<raiz> es <raiz> menos 1
+				Escribir <raiz>
+				Parar
+			}
+		Sumarle 1 a <raiz>
+		}

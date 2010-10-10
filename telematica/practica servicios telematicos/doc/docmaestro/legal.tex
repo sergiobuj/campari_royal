@@ -1,0 +1,76 @@
+\documentclass[
+	%draft,
+	%submission,
+	%compressed,
+	final,
+	%
+	%technote,
+	%internal,
+	%submitted,
+	%inpress,
+	%reprint,
+	%
+	%titlepage,
+	notitlepage,
+	%anonymous,
+	narroweqnarray,
+	inline,
+	twoside,
+         %invited,
+	]{ieee}
+
+\newcommand{\latexiie}{\LaTeX2{\Large$_\varepsilon$}}
+
+%Code
+	\usepackage{listings}
+	\usepackage{fancyvrb}
+	\usepackage{moreverb}
+	\usepackage{listings}
+%	\DefineVerbatimEnvironment{code}{Verbatim}{fontsize=\small}
+%	\DefineVerbatimEnvironment{example}{Verbatim}{fontsize=\small}
+	\usepackage{amssymb}
+	\def\myTabs{2}
+%edoC
+\usepackage{graphicx}
+%Español
+	\usepackage[utf8]{inputenc}
+	\usepackage[spanish]{babel}
+%loñapsE
+
+\begin{document}
+
+\title[Load Balancer]{
+       Telemática\\ Load Balancer}
+
+
+\author[]{Sebastián Arcila Valenzuela (\textit{sarcilav@eafit.edu.co})
+\and{}y Sergio Botero Uribe (\textit{sbotero2@eafit.edu.co}).
+}
+
+\journal{ST0255-031 Telemática}
+\titletext{, \today}
+\maketitle               
+
+
+\section{Legal}
+
+Para el load balancer se tomaron unas clases de una explicación llamada ``Linux Socket Programming In C++, Published in Issue 74 of Linux Gazette, January 2002''  \cite{web} que se modificaron en algunos aspectos para ajustarlas a nuestras necesidades.\\
+El código es propiedad de Rob Tougher (2002)\cite{mail} y está bajo la licencia de OPL \cite{opl} que permite modificarlo siempre y cuando se identifique el nombre del autor real y se haga claridad en el hecho de que el código no es propio.\\
+Usamos este código porque era el más apropiado para trabajar al nivel de abstracción que queríamos con los sockets en C/C++, con los que al
+principio tuvimos inconvenientes.\\ El código nos sirvió para manejar la creación de sockets y manejo de excepciones.\\
+Las clases que se usaron fueron: ``ClientSocket'', ``ServerSocket'', ``SocketException'' y ``Socket''.
+
+\begin{thebibliography}{1}
+
+
+\bibitem{web}
+\newblock{http://linuxgazette.net/issue74/tougher.html}\\
+\bibitem{mail}
+\newblock{Rob Tougher\\ rtougher@yahoo.com\\Copyright © 2002.}\\
+\bibitem{opl}
+\newblock{http://linuxgazette.net/copying.html}\\
+
+\end{thebibliography}
+
+
+\end{document}

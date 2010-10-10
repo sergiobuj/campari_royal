@@ -1,0 +1,64 @@
+!
+version 12.4
+no service password-encryption
+!
+hostname Cali
+!
+!
+!
+!
+!
+ip ssh version 1
+!
+!
+interface FastEthernet0/0
+ ip address 192.168.1.1 255.255.255.128
+ duplex auto
+ speed auto
+!
+interface FastEthernet0/1
+ no ip address
+ duplex auto
+ speed auto
+ shutdown
+!
+interface Serial1/0
+ ip address 192.168.2.138 255.255.255.252
+!
+interface Serial1/1
+ no ip address
+ shutdown
+!
+interface Serial1/2
+ no ip address
+ shutdown
+!
+interface Serial1/3
+ no ip address
+ shutdown
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+ip classless
+ip route 192.168.2.140 255.255.255.252 192.168.2.137 
+ip route 192.168.2.144 255.255.255.252 192.168.2.137 
+ip route 192.168.2.128 255.255.255.248 192.168.2.137 
+ip route 192.168.1.128 255.255.255.128 192.168.2.137 
+ip route 192.168.2.0 255.255.255.192 192.168.2.137 
+ip route 192.168.2.64 255.255.255.192 192.168.2.137 
+ip route 192.168.0.0 255.255.255.128 192.168.2.137 
+ip route 192.168.0.128 255.255.255.128 192.168.2.137 
+!
+!
+!
+!
+!
+line con 0
+line vty 0 4
+ login
+!
+!
+end
+

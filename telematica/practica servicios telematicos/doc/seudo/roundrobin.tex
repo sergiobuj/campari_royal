@@ -1,0 +1,25 @@
+%seudocódigo Round Robin
+
+$\vartriangleright$ Idea: Round Robin es el método más sencillo, ya que simplemente lleva la cuenta de cuál fue el último servidor al cual se envió
+petición y en base a eso envía al siguiente en la lista. La implementación se basa en un contador que se incrementa y se le aplica el módulo con
+el número de servidores.\\
+\begin{verbatimtab}[\myTabs]
+
+RoundRobin
+read( servers_array )
+	num_servers = length( servers_array )
+	server_no = 0
+	
+	while incoming_connection
+		fork
+			read( server_no )
+			connect2( server_array[server_no] )
+			server_no = server_no + 1
+			server_no = server_no \% num_servers
+			write( server_no )
+		exitfork
+	endwhile
+
+endRoundRobin\\
+\end{verbatimtab}\\
+

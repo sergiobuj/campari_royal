@@ -1,0 +1,31 @@
+%seudocódigo para el menor número de conexiones
+
+$\triangle$ Idea: Este método se basa en una tabla que guarda el número de conexiones activas que tiene cada servidor, y entrega la nueva conexión
+al servidor que tenga el menor número.\\
+
+\begin{verbatimtab}[\myTabs]
+
+LeastConnection
+	read( server_array )
+	connections_array
+	
+	while incoming_connection
+		fork
+			read( connections_array )
+			index = lower_value( connections_array )
+			if( connect2( server_array[index] ) )
+				connections_array[index] ++
+				write( connections_array )
+				write( index )
+			endif
+		exitfork
+		read( connections_array )
+		read( index )
+		connections_array[index] --
+		write( connections_array )
+	endwhile
+
+endLeastConnection\\
+
+\end{verbatimtab}\\
+

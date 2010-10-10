@@ -1,0 +1,13 @@
+<h1>Nueva lista</h1>
+
+<% form_for([@user, @list]) do |f| %>
+  <%= f.error_messages %>
+
+ <%= render :partial => "form", :locals => { :f => f } %>
+
+<% end %>
+
+<!--<%= link_to 'Cancelar', user_lists_path(@user) %>-->
+
+<%= link_to(image_tag("cnc.jpg", :border=>0,:alt=>'Cancelar'), user_path(@user))%>
+

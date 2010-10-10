@@ -1,0 +1,154 @@
+%======================================================================
+%----------------------------------------------------------------------
+%sergiobuj's ieee format template
+%======================================================================
+\documentclass[%
+	%draft,
+	%submission,
+	%compressed,
+	final,
+	%
+	%technote,
+	%internal,
+	%submitted,
+	%inpress,
+	%reprint,
+	%
+	%titlepage,
+	notitlepage,
+	%anonymous,
+	narroweqnarray,
+	inline,
+	twoside,
+         %invited,
+	]{ieee}
+
+\newcommand{\latexiie}{\LaTeX2{\Large$_\varepsilon$}}
+
+%Español
+	\usepackage[utf8]{inputenc}
+	\usepackage[spanish]{babel}
+%loñapsE
+
+%\usepackage{ieeetsp}	% if you want the "trans. sig. pro." style
+%\usepackage{ieeetc}	% if you want the "trans. comp." style
+%\usepackage{ieeeimtc}	% if you want the IMTC conference style
+
+% Use the `endfloat' package to move figures and tables to the end
+% of the paper. Useful for `submission' mode.
+%\usepackage {endfloat}
+
+% Use the `times' package to use Helvetica and Times-Roman fonts
+% instead of the standard Computer Modern fonts. Useful for the 
+% IEEE Computer Society transactions.
+%\usepackage{times}
+% (Note: If you have the commercial package `mathtime,' (from 
+% y&y (http://www.yandy.com), it is much better, but the `times' 
+% package works too). So, if you have it...
+%\usepackage {mathtime}
+
+% for any plug-in code... insert it here. For example, the CDC style...
+%\usepackage{ieeecdc}
+
+\begin{document}
+
+%----------------------------------------------------------------------
+% Title Information, Abstract and Keywords
+%----------------------------------------------------------------------
+\title[Avance 3 práctica 1]{%
+       Avance 3 práctica 1 \\  Organización de Computadores}
+
+% format author this way for journal articles.
+% MAKE SURE THERE ARE NO SPACES BEFORE A \member OR \authorinfo
+% COMMAND (this also means `don't break the line before these
+% commands).
+\author[]{Sebastián Arcila Valenzuela (\textit{sarcilav@eafit.edu.co}),
+\and{} Ruben Dario Bueno Angel (\textit{rbuenoan@eafit.edu.co})
+\and{}y Sergio Botero Uribe (\textit{sbotero2@eafit.edu.co}).
+}
+
+% format author this way for conference proceedings
+%\author[PLETT AND KOLL\'{A}R]{%
+        %Gregory L. Plett\member{Student Member},\authorinfo{%
+        %Department of Electrical Engineering,\\ 
+        %Stanford University, Stanford, CA 94305-9510.\\
+        %Phone: $+$1\,650\,723-4769, email: glp@simoon.stanford.edu}%
+%\and{}and%
+%\and{}Istv\'{a}n Koll\'{a}r\member{Fellow}\authorinfo{%
+        %Department of Measurement and Instrument Engineering,\\ 
+        %Technical University of Budapest, 1521 Budapest, Hungary.\\
+        %Phone: $+$\,36\,1\,463-1774, fax: +\,36\,1\,463-4112, 
+        %email: kollar@mmt.bme.hu}
+%}
+
+\journal{ST0254-031 Organización de Computadores}
+\titletext{, \today}
+%\ieeecopyright{0018--9456/97\$10.00 \copyright\ 1997 IEEE}
+%\lognumber{xxxxxxx}
+%\pubitemident{S 0018--9456(97)09426--6}
+%\loginfo{Manuscript received September 27, 1997.}
+%\firstpage{0}
+
+%\confplacedate{Ottawa, Canada, May 19--21, 1997}
+
+\maketitle               
+
+\begin{abstract} 
+Avance número 3 de la práctica 1, funciones trigonométricas en lenguaje ensamblador, trabajo realizado en la semana desde el 7 de Agosto de 2009 hasta el 14 de agosto de 2009.
+\end{abstract}
+
+\begin{keywords}
+Práctica 1, organización de computadores, ensamblador, funciones trigonométricas, intel, gas, avance 3
+\end{keywords}
+
+%----------------------------------------------------------------------
+% SECTION I: Introduction
+%----------------------------------------------------------------------
+\section{Comentarios}
+
+\PARstart Esta semana se tomó la decisión de trabajar la
+práctica con GAS, y como se tenía planeado para esta 
+semana se evaluaron GAS y NASM y se pudieron estudiar
+algunas diferencias donde la mayoría entraban en sintaxis
+como la forma de asignar valores y el hecho de que uno
+fuera AT\&T y la otra Intel, lo cual se puede cambiar fácilmente.
+
+En esta semana lamentablemente no se avanzó en código
+ya que la mayor parte del tiempo estuvo dedicada a leer
+documentación sobre la sintaxis y forma de trabajar con
+GAS.
+
+%----------------------------------------------------------------------
+% SECTION III: Dificultades
+%----------------------------------------------------------------------
+%\section{Dificultades}
+
+%\\ 
+%----------------------------------------------------------------------
+\section{Tareas por realizar}
+
+Lista de las actividades que faltan para terminar la práctica y
+otras que serían interesantes:
+\begin{itemize}
+\item Traducir lo que se tenía en FASM a GAS.
+\item Terminar el código en lenguaje ensamblador.
+\item Hacer optimizaciones y pulir el código.
+\item Hacer pruebas compilando el programa con 
+la librería funcionando propiamente.
+\end{itemize}
+
+%----------------------------------------------------
+
+
+\begin{thebibliography}{1}
+
+\bibitem{Assembla -Free subversion Hosting}
+\newblock {\em http://www.assembla.com/spaces/dashboard/index/trigo\_assembla},
+\newblock Sitio dondese encuentra todo el desarrollo y actividades de la práctica.
+\newblock{Assembla -Free subversion Hosting- http://www.assembla.com}
+
+\end{thebibliography}
+
+%----------------------------------------------------------------------
+
+\end{document}

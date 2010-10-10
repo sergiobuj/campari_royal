@@ -1,0 +1,84 @@
+\documentclass[
+	%draft,
+	%submission,
+	%compressed,
+	final,
+	%
+	%technote,
+	%internal,
+	%submitted,
+	%inpress,
+	%reprint,
+	%
+	%titlepage,
+	notitlepage,
+	%anonymous,
+	narroweqnarray,
+	inline,
+	twoside,
+         %invited,
+	]{ieee}
+
+\newcommand{\latexiie}{\LaTeX2{\Large$_\varepsilon$}}
+
+
+\usepackage{graphicx}
+%Español
+	\usepackage[utf8]{inputenc}
+	\usepackage[spanish]{babel}
+%loñapsE
+%\usepackage{multicol}
+\begin{document}
+
+\title[direccionamiento]{
+       Telemática\\ Direccionamiento}
+
+
+\author[]{Sebastián Arcila Valenzuela (\textit{sarcilav@eafit.edu.co})
+\and{}y Sergio Botero Uribe (\textit{sbotero2@eafit.edu.co}).
+}
+
+\journal{ST0255-031 Telemática}
+\titletext{, \today}
+\maketitle               
+
+\begin{abstract} 
+Documentación de la práctica sobre direccionamiento que se trabajó con el Cisco Packet Tracer 5.0. En el documento se encuentran las direcciones de
+cada una de las redes, y la estructura en general de la solución planteada para conectar las ciudades de la forma que se necesitaba.\\
+\end{abstract}
+
+\section{Introducción}
+	\input{contenido/intro}
+
+\section{Objetivos}
+	\input{contenido/objetivos}
+
+\section{Diseño de la solución}
+	\input{contenido/solucion}
+
+	\subsection{Configuración de direcciones IP}
+		\input{contenido/direcciones}
+	\subsection{VLAN}
+		\input{contenido/vlan}
+	\subsection{Tablas de enrutamiento}
+		\input{contenido/tabla_enrutamiento}
+
+%\section{Resultados}
+	\input{contenido/resultados}
+
+\section{Conclusiones}
+	\input{contenido/conclusiones}
+	
+\begin{thebibliography}{1}
+
+\bibitem{VTP} Virtual LAN Trunk Protol, Cisco Systems,
+\newblock{http://www.cisco.com/en/US/tech/tk389/tk689/technol\\ogies\_tech\_note09186a0080094c52.shtml}\\
+\bibitem{PT} Cisco Packet Tracer, Cisco Systems, Networking Academy.
+\newblock{http://www.cisco.com/web/learning/netacad/landing/P\\acket\_Tracer.html}\\
+\bibitem{ref3}
+\newblock{ }\\
+
+\end{thebibliography}
+
+
+\end{document}

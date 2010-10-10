@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/trigo_assembla/!svn/ver/33/branches/linux/lib/src
+END
+trigo.o
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/trigo_assembla/!svn/ver/33/branches/linux/lib/src/trigo.o
+END
+trigo.s
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/trigo_assembla/!svn/ver/25/branches/linux/lib/src/trigo.s
+END
+compile
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/trigo_assembla/!svn/ver/23/branches/linux/lib/src/compile
+END
+libtrigo.so
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/trigo_assembla/!svn/ver/33/branches/linux/lib/src/libtrigo.so
+END

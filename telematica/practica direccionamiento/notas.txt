@@ -1,0 +1,38 @@
+Configurar el frame-relay:
+1--hacer los DLCI por cada serial
+	100 Serial 0: Medellín – Armenia
+	101 Serial 0: Medellín – Cali
+	102 Serial 1: Armenia – Medellín
+	103 Serial 1: Armenia – Pereira
+	104 Serial 2: Pereira – Medellin
+	105 Serial 2: Pereira – Armenia
+
+
+2--hacer las conexiones internas del frame-relay
+
+configuracion router para comunicacion por medio de frame relay
+1--ponerle direccion ip a la interfaz
+2--no shutdown
+3--encapsulation frame-relay ietf
+
+
+
+configurar router para comunicacion interna
+1--poner direccion ip para la interfaz
+2- no shutdown
+
+configurar cada pc para comunicacion interna
+1--poner direccion ip a cada pc con su mascara y gateway
+
+
+
+
+
+Hacer intervlan routing en sw 3
+declarar las vlan
+hacer los puertos trunk
+hacer Switch(config) #ip routing
+hacer Switch(config) # interface vlan 10
+y asignarle direcicon ip
+repetir lo de interface para cada vlan creada y listo		
+ 

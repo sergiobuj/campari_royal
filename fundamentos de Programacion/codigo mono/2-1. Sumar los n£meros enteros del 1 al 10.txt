@@ -1,0 +1,11 @@
+Asignarle 1 a <a>
+Asignarle 10 a <b>
+Asignarle <a> a <c>
+Sumarle 1 a <a>
+Sumarle <a> a <c>
+Comparar <a> con <b>{
+<Saltar a 7>
+} de_lo_contrario {
+	<Saltar a 4>
+}
+Escribir <c>

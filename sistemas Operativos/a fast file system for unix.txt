@@ -1,0 +1,39 @@
+Los avances más significativos de los sistemas operativos se puede decir que son los referentes a la forma en como administran, acceden y guardan las datos en el
+disco. Son estas mejoras las que permiten que se tengan sistemas que son eficientes cuando se quiere hacer una transferencia de datos, cuando se quiere replicar
+algún tipo de información y cuando se quiere guardar información.
+Para los sistemas operativos, mientras más crece el tamaño de los datos, más compleja se vuelve la tarea de tener que buscar espacio en el disco y más veces se debe pasar por las vías más lentas de la máquina para obtener esa información, con una implementación pobre o no muy apropiada del sistema de archivos esta tarea
+de manipular los datos se vuelve notable para el usuario y a la final puede llegar a limitar el trabajo que se pueda realizar con una determinada implementación de un sistema de archivos.
+Si bien la eficiencia o eficacia de un sistema de archivos la determina el uso que se le dará a la máquina, existen una serie de mejoras que se pueden hacer a nivel de diseño del sistema de archivos que benefician el rendimiento en general.
+El artículo `A Fast File System for UNIX' de M. McKusick, W. Joy, S. Leffler y R. Fabry trata sobre las principales mejoras que se hicieron sobre el sistema de archivos tradicional (el desarrollado en los laboratorios Bell) y explica un poco sobre las razones que motivaron ciertos avances.
+
+
+Un disco duro por lo general bajo cualquier sistema de archivos se divide en particiones, donde cada partición tiene un sistema de archivos y cada uno tiene un super bloque que almacena información como el número máximo de archivos, el número de bloques y un apuntador a la lista enlazada de espacio libre. Un sistema de archivos no puede nunca expandirse en dos particiones diferentes. Los datos se almacenan en porciones llamadas bloques, y cada dato dependiendo del tamaño ocupa uno o varios bloques.
+Cada archivo que se tiene en disco está referenciado por un `inodo’, los cuales están ubicados al inicio del disco y contienen información como: fecha de modificación, permisos y propiedad, fecha de creación y la dirección en disco de los bloques que hacen parte del archivo.
+En este sistema de archivos tradicional se contaba con bloques de 512-bytes, este era también
+el tamaño máximo de datos que podía ser transferido a memoria. Otra caracteristica de este sistema es que los bloques libres y los usados nunca se reorganizaban, por lo que el sistema funcionaba muy bien en el primer periodo de uso pero disminuía su capacidad y velocidad mientras se creaban y eliminaban archivos, esto debido a que los datos nuevos se localizan
+llenando espacios de datos que ya no están, lo que obliga a hacer muchos saltos y búsquedas sobre el disco. Una forma de evitar esta localización aleatoria era ejecutar un proceso periódicamente que ordenara los bloques ocupados, esto debía ser rediseñado.
+
+El sistema de archivos tradicional evolucionó primero duplicando el tamaño del bloque, pasando de 512 a 1024-bytes, lo que permitió principalmente la transferencia de archivos completos en un menor número de accesos a disco.
+Al tener un tamaño de bloque mayor, se debía hacer algo con los archivos muy pequeños, por lo que se permitió la fragmentación de estos bloques.
+Con el hecho de tener bloques más grandes y además fragmentos de estos bloques, surgió la necesidad de optimizar el almacenamiento, donde se resaltan dos cosas: se estableció un tamaño estándar para hacer transferencias y escrituras. Y se cambió la forma en que se localizan los datos por una que tiene en cuenta los bloques ya usados.
+
+Uno de los grandes saltos que se dio desde el sistema de archivos tradicional fue el de parametrizar el disco y procesador, esto quiere decir que el sistema de archivos se podía adaptar a las especificaciones de la máquina en la que se ejecutaría, y así podía en base a las capacidades del hardware determinar intervalos de tiempo para localizar bloques, tamaño de bloques y espacio entre bloques contiguos de datos dependiendo de la velocidad del procesador y de la velocidad de giro de los brazos del disco. Esto es importante porque la velocidad a la que el procesador recibe datos es diferente a la velocidad a la que el disco puede entregarlos, para hacer esta operación lo más eficiente posible, los bloques pertenecientes a un archivo se dispondrían de forma que el brazo del disco no tuviera que esperar todo un giro para leer la información siguiente si no que en el mismo giro pudiera recuperar la mayor cantidad posible simplemente cambiando de pista.
+El bloque preciso para la siguiente localización también se puede determinar con intervalo de tiempo que puede ser modificado sin necesidad de restaurar el sistema de archivos, todo para
+que un eventual cambio de procesador no requiera un cambio drástico y el sistema de archivos se
+va adaptando, este tiempo es simplemente un intervalo de tiempo que el brazo del disco debe esperar para localizar el siguiente bloque y así asegurar que podrá entregar el contenido a una velocidad a la que pueda ser procesada.
+
+Las políticas de localización de datos no son la única forma de potencializar el rendimiento de  
+un sistema de archivos, existen también pequeñas modificaciones que permiten que accesos a
+disco sean mucho más provechosos. A diferencia del sistema de archivos tradicional, se busca
+que los `inodo’ de los archivos contenidos en un directorio se puedan almacenar en un mismo
+grupo de cilindros, para que se pueda obtener la información de un directorio sin tener que recorrer el disco dando saltos.
+
+Como mejoras funcionales al sistema de archivos se implementaron los `symbolic links’ que simplemente creaban, mediante un ruta relativa o directa, una nueva referencia a un `inodo’;
+al momento de renombrar un archivo o directorio se realiza la verificación de la jerarquía y si
+esta no es alterada se copia un temporal y luego se cambia el nombre; los `Long File Names’ que ahora tenían una longitud máxima de caracteres que se podían almacenar en las propiedades del `inodo’ y también la posibilidad de bloquear un archivo para su acceso, permitiendo que un sólo proceso tenga la posibilidad de modificarlo y usarlo sin que su información sea modificada por otro proceso, esto se logro mediante los bloqueos fuertes y los bloqueos suaves, que dependiendo de los privilegios del usuario que los impusiera tenía diferentes ventajas.
+
+Estas fueron solo algunas de las modificaciones y mejoras que se le han hecho al sistema de archivos de UNIX a través del tiempo y esperemos que existan muchas por llegar.
+Queda muy claro que si bien el sistema operativo tiene mucho trabajo en la manipulación de los
+datos, es el sistema de archivos en el que se monte el que permite que muchas de las funciones
+tengan un mejor rendimiento frente al mismo sistema operativo que se tenga sobre otro sistema de archivos y mejor aún cuando existe la posibilidad de la parametrizar el hardware para
+poder sacarle el mejor provecho a este.

@@ -1,0 +1,212 @@
+//============================================================================
+// Name        : ProductorConsumidor.cpp
+// Author      : Juan Pablo vergara
+// Version     :
+// Copyright   : Este software fue creado por Juan Pablo Vergara con fines academicos.
+// Description : Proceso que lanza dos hilos, uno productor de datos, otro consumidor de datos.
+//============================================================================
+
+#include <iostream>
+#include <math.h>
+#include <stdlib.h>
+#include <cstring>
+#include <errno.h>
+#include "LectoresEscritores.h"
+
+using namespace std;
+
+
+void *lector(void *threadid)
+{
+	while(true){
+
+	   // 2. Seleccione 2 wait correctos. Los debe dejar en el orden adecuado.
+	   //semaforo.wait(intSemaforoEscritores, 0, -1);
+	   semaforo.wait(intSemaforoLectores, 0, -1);
+	   semaforo.wait(intSemaforoMutex1, 0, -1);
+	   //semaforo.wait(intSemaforoMutex2, 0, -1);
+
+
+	   intNumeroLectores = intNumeroLectores + 1;
+
+	   if(intNumeroLectores == 1){
+		   // 3. Seleccione el wait correcto.
+		   semaforo.wait(intSemaforoEscritores, 0, -1);
+		   //semaforo.wait(intSemaforoLectores, 0, -1);
+		   //semaforo.wait(intSemaforoMutex1, 0, -1);
+		   //semaforo.wait(intSemaforoMutex2, 0, -1);
+	   }
+
+	   // 4. Seleccione 2 signal correctos. Los debe dejar en el orden correcto
+	   semaforo.signal(intSemaforoMutex1,0);
+	   //semaforo.signal(intSemaforoMutex2,0);
+	   semaforo.signal(intSemaforoLectores,0);
+	   //semaforo.signal(intSemaforoEscritores,0);
+
+	   cout<<"Leyendo base de datos ..."<<endl;
+
+	   //5. Seleccione el wait correcto.
+	   semaforo.wait(intSemaforoMutex1, 0, -1);
+	   //semaforo.wait(intSemaforoMutex2, 0, -1);
+	   //semaforo.wait(intSemaforoEscritores, 0, -1);
+	   //semaforo.wait(intSemaforoLectores, 0, -1);
+
+	   intNumeroLectores = intNumeroLectores - 1;
+
+	   if(intNumeroLectores == 0){
+		   // 6. Seleccione el signal correcto.
+		//   semaforo.signal(intSemaforoMutex1,0);
+		//   semaforo.signal(intSemaforoMutex2,0);
+		   semaforo.signal(intSemaforoEscritores,0);
+		//   semaforo.signal(intSemaforoLectores,0);
+	   }
+
+	   // 7. Seleccione el signal adecuado.
+	   //semaforo.signal(intSemaforoEscritores,0);
+	   semaforo.signal(intSemaforoMutex1,0);
+	   //semaforo.signal(intSemaforoLectores,0);
+	   //semaforo.signal(intSemaforoMutex2,0);
+
+	}
+
+   pthread_exit(NULL);
+}
+
+void *escritor(void *threadid)
+{
+	while(true){
+
+		// 8. Seleccione el wait correcto.
+		//semaforo.wait(intSemaforoMutex1, 0, -1);
+		semaforo.wait(intSemaforoMutex2, 0, -1);
+		//semaforo.wait(intSemaforoEscritores, 0, -1);
+		//semaforo.wait(intSemaforoLectores, 0, -1);
+
+		intNumeroEscritores = intNumeroEscritores + 1;
+		if(intNumeroEscritores == 1){
+
+			// 9. Seleccione el wait correcto.
+			//semaforo.wait(intSemaforoMutex1, 0, -1);
+			//semaforo.wait(intSemaforoMutex2, 0, -1);
+			//semaforo.wait(intSemaforoEscritores, 0, -1);
+			semaforo.wait(intSemaforoLectores, 0, -1);
+
+		}
+
+		// 10. Seleccione el signal correcto.
+		//semaforo.signal(intSemaforoEscritores,0);
+		//semaforo.signal(intSemaforoMutex1,0);
+		//semaforo.signal(intSemaforoLectores,0);
+		semaforo.signal(intSemaforoMutex2,0);
+
+		// 11. Seleccione el wait correcto.
+		//semaforo.wait(intSemaforoMutex1, 0, -1);
+		//semaforo.wait(intSemaforoMutex2, 0, -1);
+		semaforo.wait(intSemaforoEscritores, 0, -1);
+		//semaforo.wait(intSemaforoLectores, 0, -1);
+
+		cout<<"Escribiendo en base de datos ..."<<endl;
+
+		// 12. Seleccione el signal correcto.
+		semaforo.signal(intSemaforoEscritores,0);
+	    //semaforo.signal(intSemaforoMutex1,0);
+	    //semaforo.signal(intSemaforoLectores,0);
+	    //semaforo.signal(intSemaforoMutex2,0);
+
+	    // 13. Seleccione el wait correcto.
+		//semaforo.wait(intSemaforoMutex1, 0, -1);
+		semaforo.wait(intSemaforoMutex2, 0, -1);
+		//semaforo.wait(intSemaforoEscritores, 0, -1);
+		//semaforo.wait(intSemaforoLectores, 0, -1);
+
+		intNumeroEscritores = intNumeroEscritores - 1;
+		if(intNumeroEscritores == 0){
+
+			// 14. Seleccione el signal correcto.
+			//semaforo.signal(intSemaforoEscritores,0);
+		    //semaforo.signal(intSemaforoMutex1,0);
+			semaforo.signal(intSemaforoLectores,0);
+			//semaforo.signal(intSemaforoMutex2,0);
+		}
+
+		// 15. Seleccione el signal correcto.
+		//semaforo.signal(intSemaforoEscritores,0);
+	    //semaforo.signal(intSemaforoMutex1,0);
+	    //semaforo.signal(intSemaforoLectores,0);
+	    semaforo.signal(intSemaforoMutex2,0);
+
+	}
+    pthread_exit(NULL);
+}
+
+void crearSemaforos(){
+
+	intSemaforoMutex1 = semaforo.crearSemaforo(KEY_SEMAFORO_MUTEX1,1);
+	intSemaforoMutex2 = semaforo.crearSemaforo(KEY_SEMAFORO_MUTEX2,1);
+	intSemaforoLectores = semaforo.crearSemaforo(KEY_SEMAFORO_LECTORES,1);
+	intSemaforoEscritores = semaforo.crearSemaforo(KEY_SEMAFORO_ESCRITORES,1);
+
+	/*
+	 * 1. Indique el valor en el que debe comenzar cada semaforo.
+	 * 	Para esto reemplace el numero 666 por el valor correcto
+	 *
+	 * */
+	semaforo.cambiarValorSemaforo(KEY_SEMAFORO_MUTEX1, 0, 1, 1);
+	semaforo.cambiarValorSemaforo(KEY_SEMAFORO_MUTEX2, 0, 1, 1);
+	semaforo.cambiarValorSemaforo(KEY_SEMAFORO_LECTORES, 0, 1, 1);
+	semaforo.cambiarValorSemaforo(KEY_SEMAFORO_ESCRITORES, 0, 1, 1);
+
+}
+
+void eliminarSemaforos(){
+	semaforo.kill(intSemaforoMutex1);
+	semaforo.kill(intSemaforoMutex2);
+	semaforo.kill(intSemaforoLectores);
+	semaforo.kill(intSemaforoEscritores);
+}
+
+/*
+ * Punto de entrada a la ejecucion de este programa. No contiene ningun error.
+ * */
+
+int main(){
+
+	cout << "Iniciando variables ..." << endl;
+
+	intNumeroLectores = 0;
+	intNumeroEscritores = 0;
+
+	cout << "Iniciando proceso padre ..." << endl;
+
+	pthread_t pthread_HiloLector, pthread_HiloEscritor;
+	int intRetornoCrearHilo;
+	void * status;
+	intSeccionCritica = 0;
+
+	cout << "Creando semaforos ..." << endl;
+	crearSemaforos();
+
+	cout << "Creando hilo lector ..." << endl;
+	intRetornoCrearHilo = pthread_create(&pthread_HiloLector, NULL, lector, (void *)pthread_HiloLector);
+
+	if (intRetornoCrearHilo){
+		cout << "Error al crear el hilo lector: " <<strerror(errno);
+		exit(1);
+	}
+
+	cout << "Creando hilo escritor ..." << endl;
+	intRetornoCrearHilo = pthread_create(&pthread_HiloEscritor, NULL, escritor, (void *)pthread_HiloEscritor);
+
+	if (intRetornoCrearHilo){
+		cout << "Error al crear el hilo escritor: " <<strerror(errno);
+		exit(1);
+	}
+
+	pthread_join(pthread_HiloLector, &status);
+	pthread_join(pthread_HiloEscritor, &status);
+
+	cout << "Eliminando semaforos" << endl;
+	eliminarSemaforos();
+
+	return 0;
+}

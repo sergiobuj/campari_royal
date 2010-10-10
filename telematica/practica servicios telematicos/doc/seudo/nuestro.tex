@@ -1,0 +1,19 @@
+$\vartriangleright$ La idea sobre la cual se basa es un principio probabilista muy simple si un servidor cualquiera es capaz de dar un response a un
+request simple, mucho mas rápido que los otros, existe una posibilidad mucho mayor, de que se  comporte mejor para un request en general,
+es decir es una especie de look a head por medio del cual definimos un favorito.\\
+
+\begin{verbatimtab}[\myTabs]
+heuristica()
+best <- MAX
+for i <- 0 to servers
+  do evaluate i
+    if i better than best
+      then best <- i
+
+
+evaluate()
+  time <- 0
+  while socket sin respuesta
+    time <- time +1
+\end{verbatimtab}\\
+

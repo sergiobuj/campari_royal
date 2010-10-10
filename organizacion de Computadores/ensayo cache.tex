@@ -1,0 +1,220 @@
+%======================================================================
+%----------------------------------------------------------------------
+%sergiobuj's ieee format template
+%======================================================================
+\documentclass[%
+	%draft,
+	%submission,
+	%compressed,
+	final,
+	%
+	%technote,
+	%internal,
+	%submitted,
+	%inpress,
+	%reprint,
+	%
+	%titlepage,
+	notitlepage,
+	%anonymous,
+	narroweqnarray,
+	inline,
+	twoside,
+         %invited,
+	]{ieee}
+
+\newcommand{\latexiie}{\LaTeX2{\Large$_\varepsilon$}}
+
+%Español
+	\usepackage[utf8]{inputenc}
+	\usepackage[spanish]{babel}
+%loñapsE
+
+%\usepackage{ieeetsp}	% if you want the "trans. sig. pro." style
+%\usepackage{ieeetc}	% if you want the "trans. comp." style
+%\usepackage{ieeeimtc}	% if you want the IMTC conference style
+
+% Use the `endfloat' package to move figures and tables to the end
+% of the paper. Useful for `submission' mode.
+%\usepackage {endfloat}
+
+% Use the `times' package to use Helvetica and Times-Roman fonts
+% instead of the standard Computer Modern fonts. Useful for the 
+% IEEE Computer Society transactions.
+\usepackage{times}
+% (Note: If you have the commercial package `mathtime,' (from 
+% y&y (http://www.yandy.com), it is much better, but the `times' 
+% package works too). So, if you have it...
+%\usepackage {mathtime}
+
+% for any plug-in code... insert it here. For example, the CDC style...
+%\usepackage{ieeecdc}
+
+\begin{document}
+
+%----------------------------------------------------------------------
+% Title Information, Abstract and Keywords
+%----------------------------------------------------------------------
+\title[Ensayo memorias caché Sun]{%
+       Taller 13 de Agosto \\  Organización de Computadores}
+
+% format author this way for journal articles.
+% MAKE SURE THERE ARE NO SPACES BEFORE A \member OR \authorinfo
+% COMMAND (this also means `don't break the line before these
+% commands).
+\author[]{Sergio Botero Uribe (\textit{sbotero2@eafit.edu.co}).
+}
+
+% format author this way for conference proceedings
+%\author[PLETT AND KOLL\'{A}R]{%
+        %Gregory L. Plett\member{Student Member},\authorinfo{%
+        %Department of Electrical Engineering,\\ 
+        %Stanford University, Stanford, CA 94305-9510.\\
+        %Phone: $+$1\,650\,723-4769, email: glp@simoon.stanford.edu}%
+%\and{}and%
+%\and{}Istv\'{a}n Koll\'{a}r\member{Fellow}\authorinfo{%
+        %Department of Measurement and Instrument Engineering,\\ 
+        %Technical University of Budapest, 1521 Budapest, Hungary.\\
+        %Phone: $+$\,36\,1\,463-1774, fax: +\,36\,1\,463-4112, 
+        %email: kollar@mmt.bme.hu}
+%}
+
+\journal{ST0254-031 Organización de Computadores}
+\titletext{, \today}
+%\ieeecopyright{0018--9456/97\$10.00 \copyright\ 1997 IEEE}
+%\lognumber{xxxxxxx}
+%\pubitemident{S 0018--9456(97)09426--6}
+%\loginfo{Manuscript received September 27, 1997.}
+%\firstpage{0}
+
+%\confplacedate{Ottawa, Canada, May 19--21, 1997}
+
+\maketitle               
+
+%\begin{abstract} 
+Con el estudio de las memorias caché y el contenido del documento queda claro que
+ la implementación de la memoria caché tiene un impacto positivo muy grande en el
+ desempeño de un programa permitiendo al procesador acceder a la información con
+ menos tiempo de espera.\\ La forma en que está diseñado el UltraSPARC$^{TM}$ tiene
+ dos conceptos muy interesantes, el primero se refiere a tener una memoria caché
+ destinada para almacenar datos y direcciones referentes con datos y el segundo
+ concepto es el de tener también una memoria caché destinada a instrucciones.
+ En los dos casos se puede ganar mucho en el momento de la interpretada de lo 
+ que se tiene en memoria con solo saber en que parte se está parado.\\\\
+Un aspecto a resaltar de algunos modelos o diseños de memoria caché, como el usado
+por Sun, es que presentan una jerarquía y que la información va pasando por una 
+especie de filtro que retiene datos, y en general aunque se van quedando ocupando
+espacio a medida que van bajando desde el dispositivo de almacenamiento hasta el
+procesador no quiere decir que sea perjudicial tener esa redundancia de datos, puesto
+que el hecho de tenerlos ahí ya significa usar menos el canal más lento en todo el
+sistema de memoria.\\
+Una inquietud que deja el documento es respecto a lo interesante que sería poder
+distribuir el programa o información de forma que las partes que mas se vayan a usar
+queden en bloques que se pasen a la memoria caché en grupo. Pero esta tarea es más
+del nivel del compilador que del sistema operativo o ambiente operativo o incluso de la
+distribución y conexión de las memorias caché.\\
+Casi se podría decir que al final todo nos lleva a pensar en la forma en que está escrito
+el programa, y como se muestra claramente en el documento, en el desempeño de una
+aplicación juega un papel muy importante la forma en que está diseñado el algoritmo.\\\\
+Para poder diseñar el algoritmo de forma eficiente en cuanto al manejo de la caché
+hay que conocer no solo el tamaño y distribución, si no también la forma en que trabaja, y esto
+es algo en lo que las máquinas de Sun pueden tener una gran ventaja, al igual que la ventaja
+que presentan las máquinas Apple en cuanto a desempeño, y es que al estar presentes
+en cada etapa del diseño y creación de los componentes pueden diseñar los programas
+y algoritmos de forma que se adapten y puedan sacar mayor provecho la arquitectura en
+que están corriendo.\\
+Un ejemplo de lo anterior aparece en el documento y es lo realizado por el Solaris OE
+con lo que llaman el 'Page Coloring', es hacer que el código se adapte a la máquina de
+forma que pueda aprovecharla al máximo.
+Se puede decir que la forma en que Sun implementa la memoria caché solo puede ser
+buena si saben acompañar esta aproximación con un código que en verdad busque
+beneficiar el desempeño y que busque adaptarse para ser más eficiente, aunque el
+modelo para presentar más memoria caché pueden también presentar mayor costo,
+podría ser una de las pocas desventajas.
+% \end{abstract}
+
+
+%----------------------------------------------------------------------
+% SECTION I: Introduction
+%----------------------------------------------------------------------
+%\section{Comentarios}
+
+%\PARstart En este primer avance de la prácitca que se está programando  
+%para linux, se entrega el código en C de la aplicación
+%que usará la librería, aplicación con GTK para la interfaz gráfica.
+%Además un primer acercamiento al código de las funciones trigonométricas.
+%Se ha optado por realizar una serie de modificaciones para usar
+%solamente una función que cumpla la tarea de las funciones de seno
+%y coseno, además de unos cambios en la forma de calcular el factorial y
+%la exponenciación para eliminar la necesidad de otras funciones o ciclos adicionales.\\
+%Por ahora la aplicación en C no está conectada con la librería.
+
+%%----------------------------------------------------------------------
+%% SECTION II: Estructura de la práctica
+%%----------------------------------------------------------------------
+%\section{ Estructura de la práctica}
+
+%El código y documentos de este primer avance se encuentra en el archivo
+%comprimido con las siguientes carpetas y caracteristicas:
+%\begin{description}
+%\item[app:] En esta carpeta se encuentra el código en C de la
+%interfaz gráfica junto con el archivo xml usado para generar todos los
+%componentes de la ventana. También está el archivo Makefile para
+%compilar la aplicación.
+
+%\item[Doc:] Esta carpeta contiene toda la documentación digital usada
+%para realizar la práctica. (No se enviarán las referencias en este avance para
+%evitar que el archivo quede muy grande)
+%\item[ejemplos\_c:] Implementacion de las funciones como sumatorias
+%en C, además de código para probar las modificaciones pensadas para
+%simplificar el código final.
+%\item[lib:] En esta carpeta se guardará la librería que será cargada por la aplicación,
+%todavía no contiene el archivo final.\\
+%\end{description}
+
+%
+
+%%----------------------------------------------------------------------
+%% SECTION III: Dificultades
+%%----------------------------------------------------------------------
+%\section{Dificultades}
+
+%La principal dificultad que se ha tenido y que no ha permitido que la práctica
+%avance un poco más rápido ha sido comprender la forma en que trabaja
+%el lenguaje ensamblador y entender que no se tiene compilador que haga 
+%algún trabajo extra.\\
+%Se han tenido dificultades con las
+%declaraciones que se deben dar para indicar tipos de datos, precisión y demás funciones
+%que debe conocer el procesador para ejecutar el código.
+%\\ 
+%%----------------------------------------------------------------------
+%\section{Tareas por realizar}
+
+%Lista de las actividades que faltan para terminar la práctica y
+%que además serían interesantes realizar:
+%\begin{itemize}
+%\item Entender a fondo las instrucciones de lenguaje
+%ensamblador utilizadas.
+%\item Ejemplos usando fasm para apropiarse de las
+%instrucciones usadas.
+%\item Terminar el código en lenguaje ensamblador.
+%\item Hacer optimizaciones y pulir el código.
+%\item Hacer pruebas compilando el programa con 
+%la librería funcionando propiamente.
+%\end{itemize}
+
+%----------------------------------------------------
+
+
+\begin{thebibliography}{1}
+
+\bibitem{Memory Hierarchy in Cache-Based Systems}
+\newblock Memory Hierarchy in Cache-Based Systems\\ Ruud van der Pas, High Performance Computing
+\newblock {\em http://www.sun.com/blueprints},
+
+
+\end{thebibliography}
+
+%----------------------------------------------------------------------
+
+\end{document}

@@ -1,0 +1,13 @@
+		Leer <m>
+		Asignarle 2 a <n>
+		Mientras.que <n>  menor <m> {
+			<valor> es <m> dividido <n>
+			<valor1> es <valor> por <n>
+			Si <valor1> igual_a <m> {
+				Imprimir <n>
+				Parar
+			}
+			Sumarle 1 a <n>
+		}
+		Escribir 0
+		Parar

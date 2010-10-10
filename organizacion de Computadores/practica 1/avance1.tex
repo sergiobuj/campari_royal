@@ -1,0 +1,187 @@
+%======================================================================
+%----------------------------------------------------------------------
+%sergiobuj's ieee format template
+%======================================================================
+\documentclass[%
+	%draft,
+	%submission,
+	%compressed,
+	final,
+	%
+	%technote,
+	%internal,
+	%submitted,
+	%inpress,
+	%reprint,
+	%
+	%titlepage,
+	notitlepage,
+	%anonymous,
+	narroweqnarray,
+	inline,
+	twoside,
+         %invited,
+	]{ieee}
+
+\newcommand{\latexiie}{\LaTeX2{\Large$_\varepsilon$}}
+
+%Español
+	\usepackage[utf8]{inputenc}
+	\usepackage[spanish]{babel}
+%loñapsE
+
+%\usepackage{ieeetsp}	% if you want the "trans. sig. pro." style
+%\usepackage{ieeetc}	% if you want the "trans. comp." style
+%\usepackage{ieeeimtc}	% if you want the IMTC conference style
+
+% Use the `endfloat' package to move figures and tables to the end
+% of the paper. Useful for `submission' mode.
+%\usepackage {endfloat}
+
+% Use the `times' package to use Helvetica and Times-Roman fonts
+% instead of the standard Computer Modern fonts. Useful for the 
+% IEEE Computer Society transactions.
+%\usepackage{times}
+% (Note: If you have the commercial package `mathtime,' (from 
+% y&y (http://www.yandy.com), it is much better, but the `times' 
+% package works too). So, if you have it...
+%\usepackage {mathtime}
+
+% for any plug-in code... insert it here. For example, the CDC style...
+%\usepackage{ieeecdc}
+
+\begin{document}
+
+%----------------------------------------------------------------------
+% Title Information, Abstract and Keywords
+%----------------------------------------------------------------------
+\title[Avance práctica 1]{%
+       Avance práctica 1 \\  Organización de Computadores}
+
+% format author this way for journal articles.
+% MAKE SURE THERE ARE NO SPACES BEFORE A \member OR \authorinfo
+% COMMAND (this also means `don't break the line before these
+% commands).
+\author[]{Sebastián Arcila Valenzuela (\textit{sarcilav@eafit.edu.co}),
+\and{} Ruben Dario Bueno Angel (\textit{rbuenoan@eafit.edu.co})
+\and{}y Sergio Botero Uribe (\textit{sbotero2@eafit.edu.co}).
+}
+
+% format author this way for conference proceedings
+%\author[PLETT AND KOLL\'{A}R]{%
+        %Gregory L. Plett\member{Student Member},\authorinfo{%
+        %Department of Electrical Engineering,\\ 
+        %Stanford University, Stanford, CA 94305-9510.\\
+        %Phone: $+$1\,650\,723-4769, email: glp@simoon.stanford.edu}%
+%\and{}and%
+%\and{}Istv\'{a}n Koll\'{a}r\member{Fellow}\authorinfo{%
+        %Department of Measurement and Instrument Engineering,\\ 
+        %Technical University of Budapest, 1521 Budapest, Hungary.\\
+        %Phone: $+$\,36\,1\,463-1774, fax: +\,36\,1\,463-4112, 
+        %email: kollar@mmt.bme.hu}
+%}
+
+\journal{ST0254-031 Organización de Computadores}
+\titletext{, \today}
+%\ieeecopyright{0018--9456/97\$10.00 \copyright\ 1997 IEEE}
+%\lognumber{xxxxxxx}
+%\pubitemident{S 0018--9456(97)09426--6}
+%\loginfo{Manuscript received September 27, 1997.}
+%\firstpage{0}
+
+%\confplacedate{Ottawa, Canada, May 19--21, 1997}
+
+\maketitle               
+
+\begin{abstract} 
+Avance número 1 de la práctica 1, funciones trigonométricas en lenguaje ensamblador, trabajo realizado desde que se publicó el enunciado de la práctica hasta el 31 de julio de 2009.
+\end{abstract}
+
+\begin{keywords}
+Práctica 1, organización de computadores, ensamblador, funciones trigonométricas, intel, fasm
+\end{keywords}
+
+%----------------------------------------------------------------------
+% SECTION I: Introduction
+%----------------------------------------------------------------------
+\section{Comentarios}
+
+\PARstart En este primer avance de la prácitca que se está programando  
+para linux, se entrega el código en C de la aplicación
+que usará la librería, aplicación con GTK para la interfaz gráfica.
+Además un primer acercamiento al código de las funciones trigonométricas.
+Se ha optado por realizar una serie de modificaciones para usar
+solamente una función que cumpla la tarea de las funciones de seno
+y coseno, además de unos cambios en la forma de calcular el factorial y
+la exponenciación para eliminar la necesidad de otras funciones o ciclos adicionales.\\
+Por ahora la aplicación en C no está conectada con la librería.
+
+%----------------------------------------------------------------------
+% SECTION II: Estructura de la práctica
+%----------------------------------------------------------------------
+\section{ Estructura de la práctica}
+
+El código y documentos de este primer avance se encuentra en el archivo
+comprimido con las siguientes carpetas y caracteristicas:
+\begin{description}
+\item[app:] En esta carpeta se encuentra el código en C de la
+interfaz gráfica junto con el archivo xml usado para generar todos los
+componentes de la ventana. También está el archivo Makefile para
+compilar la aplicación.
+
+\item[Doc:] Esta carpeta contiene toda la documentación digital usada
+para realizar la práctica. (No se enviarán las referencias en este avance para
+evitar que el archivo quede muy grande)
+\item[ejemplos\_c:] Implementacion de las funciones como sumatorias
+en C, además de código para probar las modificaciones pensadas para
+simplificar el código final.
+\item[lib:] En esta carpeta se guardará la librería que será cargada por la aplicación,
+todavía no contiene el archivo final.\\
+\end{description}
+
+
+
+%----------------------------------------------------------------------
+% SECTION III: Dificultades
+%----------------------------------------------------------------------
+\section{Dificultades}
+
+La principal dificultad que se ha tenido y que no ha permitido que la práctica
+avance un poco más rápido ha sido comprender la forma en que trabaja
+el lenguaje ensamblador y entender que no se tiene compilador que haga 
+algún trabajo extra.\\
+Se han tenido dificultades con las
+declaraciones que se deben dar para indicar tipos de datos, precisión y demás funciones
+que debe conocer el procesador para ejecutar el código.
+\\ 
+%----------------------------------------------------------------------
+\section{Tareas por realizar}
+
+Lista de las actividades que faltan para terminar la práctica y
+que además serían interesantes realizar:
+\begin{itemize}
+\item Entender a fondo las instrucciones de lenguaje
+ensamblador utilizadas.
+\item Ejemplos usando fasm para apropiarse de las
+instrucciones usadas.
+\item Terminar el código en lenguaje ensamblador.
+\item Hacer optimizaciones y pulir el código.
+\item Hacer pruebas compilando el programa con 
+la librería funcionando propiamente.
+\end{itemize}
+
+%----------------------------------------------------
+
+
+\begin{thebibliography}{1}
+
+\bibitem{Assembla -Free subversion Hosting}
+\newblock {\em http://www.assembla.com/spaces/dashboard/index/trigo\_assembla},
+\newblock Sitio dondese encuentra todo el desarrollo y actividades de la práctica.
+\newblock{Assembla -Free subversion Hosting- http://www.assembla.com}
+
+\end{thebibliography}
+
+%----------------------------------------------------------------------
+
+\end{document}

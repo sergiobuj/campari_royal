@@ -1,0 +1,9 @@
+		Asignarle 1 a <a>
+		Leer <m>
+		Asignarle <a> a <b>
+		Mientras.que <a> menor <m> {
+		<a> es <a> mas 1
+		<b> es <b> mas <a>
+		}
+		Imprimir <b>
+ 		Parar

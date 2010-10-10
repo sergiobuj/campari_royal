@@ -1,0 +1,32 @@
+
+1)	asignarle 00 a <h>
+2)	asignarle 00 a <m>
+3)	asignarle 00 a <s>
+4)	escribir <h>:<m>:<s>
+5)	comparar <h> con 23{
+		Comparar <m> con 59{
+			Comparar <s> con 59{
+				Parar
+			} de_lo_contrario{
+				Saltar a 6
+			}
+		} de_lo_contrario{
+			Saltar a 6
+		}
+	} de_lo_contrario{
+		Saltar a 6
+	}
+6)	sumarle 01 a <s>
+7)	comparar <s> con 60{
+		Sumarle 01 a <m>
+		Asignarle 00 a <s>
+		Comparar <m> con 60{
+			Sumarle 01 a <h>
+			Asignarle 00 a <m>
+			Saltar a 4
+		} de_lo_contrario{
+			Saltar a 4
+		}
+	} de_lo_contrario{
+		Saltar a 4
+	}

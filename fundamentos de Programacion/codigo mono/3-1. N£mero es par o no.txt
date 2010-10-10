@@ -1,0 +1,9 @@
+		Leer <a>
+		<valor> es <a> dividido 2
+		<valor1> es <valor> por 2
+		Si <valor1> igual_a <a> {
+			Imprimir 1
+		} de_lo_contrario {
+			Imprimir 0
+		}
+		Parar

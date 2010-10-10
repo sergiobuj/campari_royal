@@ -1,0 +1,41 @@
+Los protocolos usados en este balanceador de carga son TCP para toda la conexión entre los clientes y el balanceador de carga, también es TCP entre
+el load balancer y los servidores finales.\\
+Se requirió la implementación de un protocolo para el manejo y envío de mensajes entre los agentes que residen en los servidores y el balanceador
+ de cargas. Los mensajes que se intercambiarán determinan el tipo información que maneja el agente.\\
+ 
+ Protocolo Balanceador de Carga-Agente
+ 
+ \begin{itemize}
+ \item Definición y especificaciones del protocolo.\\
+El servicio que presta este protocolo es el de envío de mensajes entre el agente que está siendo ejecutado en un servidor y el balanceador de carga.
+El fin de este servicio es que el balanceador pueda disponer de información sobre el servidor y sus procesos en las veces que sea necesario hasta
+obtener un servidor que sea buen candidato para recibir la petición.\\
+El balanceador de carga sabe que puede encontrar a cualquier agente disponible en el puerto nueve mil (9000) de cualquiera de los servidores
+que puede usar para realizar el equilibrio de las peticiones.
+Por estar soportados en TCP, este protocolo no se preocupa por pérdida de información, ordenamiento u otros.
+  \item Suposiciones del entorno.\\
+  Las condiciones ideales para el funcionamiento del protocolo serían las siguientes:
+  \begin{enumerate}
+
+\item Para el correcto funcionamiento del protocolo y de los agentes, las máquinas que los ejecuten deben estar corriendo sobre un sistema operativo
+Linux, ya que la información que se toma de cada servidor se toma con comandos especiales de este sistema operativo.
+
+\item Los puertos 9000 de cada máquina que hace parte del grupo de servidores que está siendo equilibrados en carga deben estar disponibles
+para poder que el agente se ejecute sobre él. El agente necesita el puerto 9000 sólo para recibir las peticiones del balanceador.
+
+\end{enumerate}
+\item Vocabulario de mensajes.\\
+   Los mensajes enviados desde el balanceador al agente son:``lc'' y ``lbs''. Y para cada uno hay una respuesta por parte del balanceador que consiste
+   en un string de tres números, del cual sólo importa el primero, y un valor flotante indicando carga del procesador respectivamente.
+   ``lc'' representa el método de balanceo por menor número de conexiones activas. y ``lbs'' es el método del servidor con la menor carga o
+   ``Least Busy Server''
+\item Codificación o formato de mensajes.\\
+    Los mensajes se querían implementar lo más cortos posibes, por eso, para pedir una respuesta que pueda ser usada en un método de menor número
+    de conexiones se debe enviar al agente la palabra ``lc'' y para que la respuesta del agente sea útil para un método de ``Least Busy Server'', la palabra
+    a enviar debe ser ``lbs'', (comillas para aclarar).
+\item Reglas de procedimiento.\\
+El procedimiento que se debe seguir para el uso de este protocolo se basa en abrir un socket desde el balanceador de carga y enviar inmediatamente
+la palabra relacionada con el método que se está usando para hacer el equilibrio. Después la respuesta que venga por ese socket es lo que se usará
+para realizar el equilibrio.
+
+\end{itemize}

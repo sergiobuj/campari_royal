@@ -1,0 +1,15 @@
+%%introducción
+Los métodos de balanceo de cargas surgen como la solución para equilibrar el trabajo realizado por cualquier unidad que forme parte de un grupo
+que trata de prestar un servicio como uno solo. El balanceo de carga se usa en discos duros, procesadores, redes, donde para el caso de los
+procesadores, la unidad que tiene menor número de tareas o que tiene más capacidad para asumir otra tarea obtiene el trabajo siguiente.
+Los criterios para determinar quien debe recibir esa nueva tarea se determina mediante algún método preestablecido, de los cuales el más sencillo es
+el método de Round Robin.
+En la práctica el objetivo era implementar uno de estos balanceadores de carga para un grupo de servidores web, en donde la carga son las peticiones
+a los recursos que se encuentran replicados en este grupo con la implementación de cuatro métodos diferentes para solucionar este problema. Los
+métodos implementados son el Round Robin, menor número de conecciones actuales, menor carga en servidor y por último un método propio
+propuesto por el grupo.
+Los pasados métodos de balanceo se encuentran explicados y acompañados de un seudo código sencillo en este documento.
+Más adelante se explica también la forma en que se opera el balanceador de carga implementado y bajo que condiciones se pueden obtener los
+resultados deseados.\\
+
+

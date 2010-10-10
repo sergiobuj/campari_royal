@@ -1,0 +1,12 @@
+Leer <n1>
+Leer <n2>
+<temp1> es <n1> dividido <n2>
+<temp2> es <temp1> por <n2>
+// 1= si es divisible -----2 = no es divisible
+Si <temp2> igual_a <n1>
+	Escribir 1
+} de_lo_contrario {
+	Escribir 0
+}
+Parar
+

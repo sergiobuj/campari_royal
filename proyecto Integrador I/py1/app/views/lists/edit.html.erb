@@ -1,0 +1,12 @@
+<h1>Editar lista</h1>
+
+<% form_for([@user, @list]) do |f| %>
+  <%= f.error_messages %>
+
+ <%= render :partial => "form", :locals => { :f => f } %>
+
+<% end %>
+
+<%= link_to 'Ver', [@user, @list] %> |
+<!--<%= link_to 'Back', user_lists_path(@user) %>-->
+<%= link_to 'Mi Cuenta', user_path(@user)%>

@@ -1,0 +1,30 @@
+	.literal4
+	.align 2
+LC0:
+	.long	1065353216
+	.align 2
+LC1:
+	.long	1077936128
+	.text
+.globl _main
+_main:
+	pushl	%ebp
+	movl	%esp, %ebp
+	subl	$24, %esp
+	call	L3
+"L00000000001$pb":
+L3:
+	popl	%ecx
+	leal	LC0-"L00000000001$pb"(%ecx), %eax
+	movl	(%eax), %eax
+	movl	%eax, -16(%ebp)
+	leal	LC1-"L00000000001$pb"(%ecx), %eax
+	movl	(%eax), %eax
+	movl	%eax, -12(%ebp)
+	movss	-16(%ebp), %xmm0
+	mulss	-12(%ebp), %xmm0
+	movss	%xmm0, -16(%ebp)
+	leave
+	ret
+	.subsections_via_symbols
+ 

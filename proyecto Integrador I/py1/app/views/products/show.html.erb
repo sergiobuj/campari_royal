@@ -1,0 +1,22 @@
+<p>
+  <b>Name:</b>
+  <%=h @product.name %>
+</p>
+
+<p>
+  <b>Section:</b>
+  <%=h @product.section %>
+</p>
+
+<p>
+  <b>Ubication:</b>
+  <% if @product.ubication.nil? -%>
+  <td><%=h "Ninguna" %></td>
+  <% else -%>
+  <td><%=link_to @product.ubication.name, ubication_path(@product.ubication) %></td>
+  <% end -%>
+</p>
+
+
+<%= link_to 'Editar', edit_product_path(@product) %> |
+<%= link_to 'Volver', products_path %>

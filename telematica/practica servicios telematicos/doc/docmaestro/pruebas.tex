@@ -1,0 +1,47 @@
+Todas las pruebas del balanceador de cargas por Round Robin fueron a pequeña escala, el ambiente de pruebas fueron dos portátiles, donde cada
+portátil corría dos servidores web con páginas de inicio de desarrollos en blanco de Ruby on Rails y drupal. Una de las máquinas ejecutaba el
+balanceador de cargas y desde las dos se hacían peticiones que recibía el balanceador de carga.\\
+
+Las máquinas corrieron con estas configuraciones:
+Portátil 1: IP:10.0.1.5
+\begin{center}
+\begin{tabular}{ l r }
+Aplicación & Puerto \\ \hline
+ROR &  4000 \\
+Drupal  & 5000\\
+LoadBalancer & 80 \\
+\end{tabular}
+\end{center}
+Esta máquina realiza las peticiones mediante un explorador Firefox.\\ \\
+
+Portátil 2: IP:10.0.1.4
+\begin{center}
+\begin{tabular}{ l r }
+Aplicación & Puerto \\ \hline
+ROR  & 4000 \\
+Drupal  & 5000\\
+\end{tabular}
+\end{center}
+Esta máquina realiza las peticiones mediante un explorador Safari.\\ \\
+
+
+
+Las pruebas realizadas al método de balanceo LBS que requiere un agente en el servidor se realizó con dos máquinas, un portátil y un servidor.
+En las dos máquinas se corrió una aplicación en blanco, para el servidor se corrió en Apache y en el portátil una aplicación en blanco en Ruby on Rails
+con servidor Webrick.\\
+La prueba consistió en correr un ``fork bomb'' con el siguiente código en C:
+
+\begin{lstlisting}[language=C]
+int main()
+{
+ int i=10000000;
+ while(i--)
+  fork();
+ return 0;
+}
+\end{lstlisting}
+
+El cual al cabo de unos segundos eleva la carga del procesador del servidor a un punto en el que podíamos observar cuando dejaba de enviar las
+peticiones al servidor y cambiaba al portátil, también después de detener la ``bomba de procesos'' veíamos como el balanceador enviaba las nuevas
+peticiones al servidor.\\
+

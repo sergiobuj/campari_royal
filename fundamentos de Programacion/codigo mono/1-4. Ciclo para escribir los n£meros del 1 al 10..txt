@@ -1,0 +1,8 @@
+
+asignarle 0 a <a>
+sumarle 1 a <a>
+escribir <a>
+compare <a> con 10
+parar
+saltar a 2) 
+

@@ -1,0 +1,59 @@
+El problema nos presenta cinco ciudades que se tienen que conectar con una estructura determinada. En la estructura
+se cuenta con una ciudad sede que se conecta con otras dos mediante una nube para `Frame-Relay', y se conecta a otras
+dos ciudades directamente. La ciudad principal incorpora dos redes virtuales (VLAN).
+Todas las redes tienen que poder entrar en comunicación con cualquier red en toda la instalación.
+El esquema de direcciones que se incorporó tiene en cuenta los siguientes aspectos:
+
+\begin{center}
+\begin{tabular}{ l r }
+Ciudad &  Número de hosts \\ \hline
+Medellín  & 250* \\
+ \raggedright vlan1 & 126 \\
+ vlan2 & 62 \\
+  vlan3 & 62 \\
+Cali  & 126 \\
+Bucaramanga  & 126 \\
+Pereira  & 62 \\
+Armenia  & 62 \\
+\end{tabular}
+\end{center}
+
+
+En base a estas suposiciones sobre el número de hosts para cada red, se partió de la dirección \verb=192.168.0.0 /22= para
+obtener todas las subredes. Se utilizó VLSM y el resultado se encuentra en la siguiente tabla de direcciones ({\em ver página
+siguiente}).\\ Se usó una dirección IP privada clase C que para los fines y el tamaño de nuestro problema era la más ajustada y además no 
+dejaba una gran cantidad de direcciones sin utilizar.
+
+
+\begin{center}
+\begin{table*}[htpd]
+\hfill{}
+\begin{tabular}{l lclc}
+Ciudad & Dirección de red & Máscara &  Broadcast & Rango de direcciones hosts\\ \hline
+Medellín & & & \\
+{\em vlan1Med} & 	\verb=192.168.0.0= &	\verb=/25= & \verb=192.168.0.127= & 	\verb= 192.168.0.1  -  192.168.0.126= \\
+{\em vlan2Med} &	\verb=192.168.0.128= & 	\verb=/26= & \verb=192.168.0.191= & 	\verb= 192.168.0.129   -  192.168.0.190= \\
+{\em vlan3Med} &	\verb=192.168.0.192= & 	\verb=/26= & \verb=192.168.0.255= & 	\verb= 192.168.0.193   -  192.168.0.254= \\
+Cali & 		\verb=192.168.1.0= & 	\verb=/25= & \verb=192.168.1.127= & 	\verb= 192.168.1.1  -  192.168.0.126= \\
+Bucaramanga &\verb=192.168.1.128=&	\verb=/25= & \verb=192.168.1.255= &	\verb= 192.168.1.129  -  192.168.1.254= \\
+Pereira &  	\verb=192.168.2.0= & 	\verb=/26= & \verb=192.168.2.63= & 	\verb= 192.168.2.1  -  192.168.2.62= \\
+Armenia &	\verb=192.168.2.64= & 	\verb=/26= & \verb=192.168.2.127= & 	\verb= 192.168.2.65  -  192.168.2.126= \\
+\end{tabular}
+\hfill{}
+\caption{Tabla de direcciones para las ciudades}
+\end{table*}
+\end{center}
+
+\begin{center}
+\begin{table*}[htdp]
+\hfill{}
+\begin{tabular}{l lclc}
+Nube FR & 	\verb=192.168.2.128= &	\verb=/29= & \verb=192.168.2.135= & 	\verb= 192.168.2.129  -  192.168.2.134= \\
+Med - Cali &	\verb=192.168.2.136= & 	\verb=/30= & \verb=192.168.2.139= & 	\verb= 192.168.2.137  -  192.168.2.138= \\
+Med - B/manga &\verb=192.168.2.140= & \verb=/30= & \verb=192.168.2.143= & 	\verb= 192.168.2.141  -  192.168.2.142= \\
+Med &		\verb=192.168.2.144=&	\verb=/30= & \verb=192.168.2.147= &	\verb= 192.168.2.145  -  192.168.2.146= \\
+\end{tabular}
+\hfill{}
+\caption{Conexiones entre ciudades}
+\end{table*}
+\end{center}

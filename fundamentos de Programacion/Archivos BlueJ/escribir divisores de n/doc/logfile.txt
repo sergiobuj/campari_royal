@@ -1,0 +1,33 @@
+Class documentation
+<---- javadoc command: ---->
+c:\program files\java\jdk1.6.0\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-source
+1.6
+-noindex
+-notree
+-nohelp
+-nonavbar
+-d
+C:\Users\Sergio\Documents\Archivos BlueJ\escribir divisores de n\doc
+-classpath
+C:\Program Files\BlueJ\lib\bluejcore.jar;C:\Program Files\BlueJ\lib\junit.jar;C:\Users\Sergio\Documents\Archivos BlueJ\escribir divisores de n
+C:\Users\Sergio\Documents\Archivos BlueJ\escribir divisores de n\divisores.java
+<---- end of javadoc command ---->
+Loading source file C:\Users\Sergio\Documents\Archivos BlueJ\escribir divisores de n\divisores.java...
+C:\Users\Sergio\Documents\Archivos BlueJ\escribir divisores de n\divisores.java:17: '.class' expected
+                    espar= par.getMethod(int n, int cont)
+                                             ^
+C:\Users\Sergio\Documents\Archivos BlueJ\escribir divisores de n\divisores.java:17: ';' expected
+                    espar= par.getMethod(int n, int cont)
+                                              ^
+C:\Users\Sergio\Documents\Archivos BlueJ\escribir divisores de n\divisores.java:17: ';' expected
+                    espar= par.getMethod(int n, int cont)
+                                                        ^
+C:\Users\Sergio\Documents\Archivos BlueJ\escribir divisores de n\divisores.java:24: reached end of file while parsing
+    }
+     ^
+4 errors

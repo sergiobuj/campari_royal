@@ -1,0 +1,55 @@
+p 4 ¿como se llama la particular forma de hablar de algunos londinenses?
+c Cockney
+r Brity
+r Chap
+r Oyster
+p 2 nombre del explorador noruego primero en alcanzar el polo sur
+c Roald Amundsen
+r Borge Östfold
+r Karl Brügen
+r Borge Bauss
+p 4 Significado del nombre del heroe mitologico Edipo 
+c Pie Hichado
+r Manos Cansadas
+r Rey de Tebas
+r Ayudante de Rey
+p 1 lago de China situado al NE de Tibet a una altura de 3.070 msnm 
+c Kuku Nor
+r Kuilu
+r Cheu-Kon
+r Kau Chen Moy
+p 4 el Oboe es... 
+c instrumento musical
+r tecnica de pintura
+r Una persona de la provincia de Ododión en Africa
+r Comida de la India
+p 1 Nombre del rio que pasa por Salamanca 
+c Tormes
+r Stallion
+r Salacés
+r Negro
+p 1 Cual de las siguientes provincias no está en Andalucía España 
+c Zaragoza
+r Almería
+r Cádiz
+r Sevilla
+p 2 Presidente de Estados Unidos en el periodo 1809 - 1817 
+c James Madison
+r James Monroe
+r Thomas Jefferson
+r John Adams
+p 4 La casa Batlló, el palacio Güell, la pedrera y la Sagrada Familia son creaciones de... 
+c Gaudí
+r Calatrava
+r Juan José Galea
+r Julián Gayarre
+p 4 Noca es... 
+c Crustáceo Marino
+r mujer ignorante
+r proliferación de germenes
+r roca del Himalaya de donde se extrae calcopirita
+p 3 Equipo Inglés que estrena estadio llamado New Emyrates 
+c Arsenal
+r Chelsea
+r Fulham
+r Liverpool

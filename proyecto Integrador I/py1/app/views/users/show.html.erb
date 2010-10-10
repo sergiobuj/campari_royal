@@ -1,0 +1,68 @@
+<h1>Bienvenido <%=h @user.login%></h1>
+
+<% if logged_in? and current_user.id == @user.id %>
+
+
+
+<p>Datos de Usuario</p>
+<TABLE>
+  <TR>
+    <TD>Nombre:</TD>
+    <TD><strong><%=h @user.firstname%></strong></TD>
+</TR>
+
+ <TR>
+    <TD>Apellido:</TD>
+    <TD><strong><%=h @user.lastname %></strong></TD>
+</TR>
+
+ <TR>
+    <TD>Correo:</TD> 
+   <TD><strong><%=h @user.email %></strong></TD>
+</TR>
+
+
+</TABLE>
+
+<!--<%= link_to 'Mis listas de mercado', user_lists_path(@user) %>-->
+
+<% if @lists.empty?%>
+   No tiene listas guardadas
+
+<% else %>
+<table>
+  <tr>
+    <th>   Nombre   </th>
+    <th>   Fecha   </th>
+  </tr>
+
+<% for list in @lists %>
+  <tr>
+    <td><%=h list.name %></td>
+    <td><%=h list.date %></td>
+    <td><%= link_to 'Ver', [@user, list] %></td>
+    <td><%= link_to 'Editar', edit_user_list_path(@user, list) %></td>
+    <td><%= link_to 'Eliminar', [@user, list], :confirm => '¿Seguro desea eliminar la lista?', :method => :delete %></td>
+    <td><%= link_to 'Transferir', [@user, list] %></td>
+  </tr>
+<% end %>
+</table>
+<% end %>
+
+<!--
+<%= link_to 'Crear Nueva Lista', new_user_list_path(@user) %>
+
+<% if @user.is_admin? %>
+<p><%= link_to 'Panel de administración', admin_path %></p>
+<% end -%>
+  <p><%= link_to 'Logout', session_path, :method => :delete %></p>
+-->
+
+
+<% else %>
+  <p><strong>No ha iniciado sesión.</strong></p>
+  <p>
+    <%= link_to 'Iniciar Sesión', new_session_path %> or
+    <%= link_to 'Regístrese', new_user_path %>
+  </p>
+<% end %>

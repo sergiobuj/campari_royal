@@ -1,0 +1,116 @@
+10
+
+dir
+37
+http://subversion.assembla.com/svn/trigo_assembla/branches/mac/Untitled2
+http://subversion.assembla.com/svn/trigo_assembla
+
+
+
+2009-08-21T07:24:06.132063Z
+24
+sergiobuj
+
+main.m
+file
+
+
+
+
+2009-08-20T04:55:46.000000Z
+4d0ba5867494955f9fd924ae13d2cae5
+2009-08-21T07:24:06.132063Z
+24
+sergiobuj
+
+Trigo.m
+file
+
+
+
+
+2009-08-21T06:58:07.000000Z
+1445539655ddb94ef342fff45db8451e
+2009-08-21T07:24:06.132063Z
+24
+sergiobuj
+
+version.plist
+file
+
+
+
+
+2009-08-20T04:55:46.000000Z
+c430d1ae5c9e9baf541c2d8622dfa3f4
+2009-08-21T07:24:06.132063Z
+24
+sergiobuj
+
+Untitled2_Prefix.pch
+file
+
+
+
+
+2009-08-20T04:55:46.000000Z
+e5b737d07ea928ed8adf39fee4b6659a
+2009-08-21T07:24:06.132063Z
+24
+sergiobuj
+
+Info.plist
+file
+
+
+
+
+2009-08-20T04:55:46.000000Z
+b6afde9abcf8b84bdeea9bc79e596f23
+2009-08-21T07:24:06.132063Z
+24
+sergiobuj
+
+Untitled2.xcodeproj
+dir
+
+compile_run_script.sh
+file
+
+
+
+
+2009-08-21T07:10:38.000000Z
+890e2de1e1d229113ef6eb17c4a5fc2d
+2009-08-21T07:24:06.132063Z
+24
+sergiobuj
+has-props
+
+nasm_dll.s
+file
+
+
+
+
+2009-08-21T06:44:47.000000Z
+0f9a6dec6d17589f478d5051924b1bf9
+2009-08-21T07:24:06.132063Z
+24
+sergiobuj
+
+Trigo.h
+file
+
+
+
+
+2009-08-21T06:43:41.000000Z
+289c6ae103c4d4e3b294f874ff17f969
+2009-08-21T07:24:06.132063Z
+24
+sergiobuj
+
+English.lproj
+dir
+

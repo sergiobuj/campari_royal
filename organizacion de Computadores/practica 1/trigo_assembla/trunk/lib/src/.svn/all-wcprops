@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/svn/trigo_assembla/!svn/ver/21/trunk/lib/src
+END
+trigo.s
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/trigo_assembla/!svn/ver/12/trunk/lib/src/trigo.s
+END
+trigolib.asm
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/trigo_assembla/!svn/ver/20/trunk/lib/src/trigolib.asm
+END
+gas.s
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/trigo_assembla/!svn/ver/21/trunk/lib/src/gas.s
+END

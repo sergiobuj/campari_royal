@@ -1,0 +1,62 @@
+p 1 la pregunta es 11
+r la resp uno11
+r la r dos11
+c la res c correcta11
+r la otra de relleno..11
+p 1 la pregunta es ....12
+c la res c correcta12
+r la resp uno12
+r la r dos12
+r la otra de relleno..12
+p 1 la pregunta es ....13
+r la resp uno13
+r la otra de relleno..13
+r la r dos13
+c la res c correcta13
+p 2 la pregunta es ....21
+r la resp uno21
+r la r dos21
+c la res c correcta21
+r la otra de relleno..21
+p 2 la pregunta es ....22
+c la res c correcta22
+r la resp uno22
+r la r dos22
+r la otra de relleno..22
+p 2 la pregunta es ....23
+r la resp uno23
+r la otra de relleno..23
+r la r dos23
+c la res c correcta23
+p 3 la pregunta es ....31
+r la resp uno31
+r la r dos31
+c la res c correcta31
+r la otra de relleno..31
+p 3 la pregunta es ....32
+c la res c correcta32
+r la resp uno32
+r la r dos32
+r la otra de relleno..32
+p 3 la pregunta es ....33
+r la resp uno33
+r la otra de relleno..33
+r la r dos33
+c la res c correcta33
+p 4 la pregunta es ....41
+r la resp uno41
+r la r dos41
+c la res c correcta41
+r la otra de relleno..41
+p 4 la pregunta es ....42
+c la res c correcta42
+r la resp uno42
+r la r dos42
+r la otra de relleno..42
+p 4 la pregunta es ....43
+r la resp uno43
+r la otra de relleno..43
+r la r dos43
+c la res c correcta43
+
+
