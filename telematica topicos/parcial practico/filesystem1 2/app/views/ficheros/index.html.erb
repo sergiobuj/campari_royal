@@ -1,0 +1,15 @@
+<h1>Listing ficheros</h1>
+
+<table>
+	<tr>
+		<th>Name</th>
+	</tr>
+
+	<% @ficheros.each do |fichero| %>
+	<tr>
+		<td><%=h fichero %></td>
+ 		<td><%= link_to 'show', fichero_path(fichero) %></td>
+	</tr>
+	<% end %>
+</table>
+<br />
